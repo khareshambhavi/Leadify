@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/dashboard">
+
+    <fragment
+        android:id="@+id/leads"
+        android:name="com.example.leadiify.view.Leads"
+        android:label="fragment_leads"
+        tools:layout="@layout/fragment_leads" />
+    <fragment
+        android:id="@+id/schedule"
+        android:name="com.example.leadiify.view.Schedule"
+        android:label="fragment_schedule"
+        tools:layout="@layout/fragment_schedule" />
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.example.leadiify.view.Dashboard"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/acitvity"
+        android:name="com.example.leadiify.view.Acitvity"
+        android:label="fragment_acitvity"
+        tools:layout="@layout/fragment_acitvity" />
+</navigation>
