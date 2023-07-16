@@ -25,4 +25,9 @@
         android:name="com.example.leadiify.view.Acitvity"
         android:label="fragment_acitvity"
         tools:layout="@layout/fragment_acitvity" />
+    <fragment
+        android:id="@+id/marketing"
+        android:name="com.example.leadiify.view.Marketing"
+        android:label="fragment_marketing"
+        tools:layout="@layout/fragment_marketing" />
 </navigation>
