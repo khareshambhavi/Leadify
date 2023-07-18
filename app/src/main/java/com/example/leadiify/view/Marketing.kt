@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.leadiify.R
 import com.example.leadiify.adapter.MarketingAdapter
 import com.example.leadiify.databinding.FragmentMarketingBinding
 import com.example.leadiify.model.campaign_data
@@ -59,6 +61,9 @@ class Marketing : Fragment() {
                     .show()
             }
         })
+        binding.floatingActionButton.setOnClickListener {
+            findNavController().navigate(R.id.action_marketing_to_createCampaign)
+        }
     }
 
 }

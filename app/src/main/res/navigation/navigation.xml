@@ -9,7 +9,11 @@
         android:id="@+id/leads"
         android:name="com.example.leadiify.view.Leads"
         android:label="fragment_leads"
-        tools:layout="@layout/fragment_leads" />
+        tools:layout="@layout/fragment_leads" >
+        <action
+            android:id="@+id/action_leads_to_userProfile"
+            app:destination="@id/userProfile" />
+    </fragment>
     <fragment
         android:id="@+id/schedule"
         android:name="com.example.leadiify.view.Schedule"
@@ -29,5 +33,18 @@
         android:id="@+id/marketing"
         android:name="com.example.leadiify.view.Marketing"
         android:label="fragment_marketing"
-        tools:layout="@layout/fragment_marketing" />
+        tools:layout="@layout/fragment_marketing" >
+        <action
+            android:id="@+id/action_marketing_to_createCampaign"
+            app:destination="@id/createCampaign" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfile"
+        android:name="com.example.leadiify.view.UserProfile"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" />
+    <fragment
+        android:id="@+id/createCampaign"
+        android:name="com.example.leadiify.view.CreateCampaign"
+        android:label="CreateCampaign" />
 </navigation>

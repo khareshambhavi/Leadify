@@ -1,33 +1,39 @@
 package com.example.leadiify.view
 
+import android.app.DatePickerDialog
 import android.os.Bundle
+import android.text.format.DateFormat.is24HourFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import com.example.leadiify.R
+import com.example.leadiify.databinding.FragmentScheduleBinding
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Schedule.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Schedule : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentScheduleBinding? =  null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    override fun onResume() {
+        super.onResume()
+        val services = resources.getStringArray(R.array.TypesofServices)
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown1, services)
+        binding.autoCompleteTextView.setAdapter(arrayAdapter)
+
+        val age = resources.getStringArray(R.array.AgeCategory)
+        val arrayAdapter2 = ArrayAdapter(requireContext(), R.layout.dropdown1, age)
+        binding.autoCompleteTextView2.setAdapter(arrayAdapter2)
+
+        val action = resources.getStringArray(R.array.SelectAction)
+        val arrayAdapter3 = ArrayAdapter(requireContext(), R.layout.dropdown1, action)
+        binding.autoCompleteTextView3.setAdapter(arrayAdapter3)
     }
 
     override fun onCreateView(
@@ -35,26 +41,97 @@ class Schedule : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_schedule, container, false)
+        _binding =  FragmentScheduleBinding.inflate(inflater, container, false)
+
+
+        binding.button1.setOnClickListener {
+            openTimePicker()
+
+        }
+
+        val mycalender = Calendar.getInstance()
+        val datePicker = DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            mycalender.set(Calendar.YEAR, year)
+            mycalender.set(Calendar.MONTH, month)
+            mycalender.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            updateLabel(mycalender)
+        }
+
+        binding.button2.setOnClickListener {
+            activity?.let { it1 ->
+                DatePickerDialog(
+                    it1, datePicker, mycalender.get(Calendar.YEAR),mycalender.get(Calendar.MONTH),
+                    mycalender.get(Calendar.DAY_OF_MONTH) ).show()
+            }
+
+        }
+
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Schedule.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Schedule().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun updateLabel(mycalender: Calendar) {
+        val myformat = "dd-MM-yyyy"
+        val sdf = SimpleDateFormat(myformat, Locale.UK)
+        binding.button2.setText(sdf.format(mycalender.time))
+    }
+
+
+    private fun openTimePicker() {
+        val isSystem24Hour = is24HourFormat(requireContext())
+        val clockFormat = if (isSystem24Hour) TimeFormat.CLOCK_24H else TimeFormat.CLOCK_12H
+
+        val picker = MaterialTimePicker.Builder()
+            .setTimeFormat(clockFormat)
+            .setHour(12)
+            .setMinute(0)
+            .setTitleText("Set Time")
+            .build()
+        picker.show(childFragmentManager, "TAG")
+        picker.addOnPositiveButtonClickListener {
+
+            val pickedHour: Int = picker.hour
+            val pickedMinute: Int = picker.minute
+
+            // check for single digit hour hour and minute
+            // and update TextView accordingly
+            val formattedTime: String = when {
+                pickedHour > 12 -> {
+                    if (pickedMinute < 10) {
+                        "${picker.hour - 12}:0${picker.minute} pm"
+                    } else {
+                        "${picker.hour - 12}:${picker.minute} pm"
+                    }
+                }
+
+                pickedHour == 12 -> {
+                    if (pickedMinute < 10) {
+                        "${picker.hour}:0${picker.minute} pm"
+                    } else {
+                        "${picker.hour}:${picker.minute} pm"
+                    }
+                }
+
+                pickedHour == 0 -> {
+                    if (pickedMinute < 10) {
+                        "${picker.hour + 12}:0${picker.minute} am"
+                    } else {
+                        "${picker.hour + 12}:${picker.minute} am"
+                    }
+                }
+
+                else -> {
+                    if (pickedMinute < 10) {
+                        "${picker.hour}:0${picker.minute} am"
+                    } else {
+                        "${picker.hour}:${picker.minute} am"
+                    }
                 }
             }
+
+            // then update the preview TextView
+            binding.button1.text = formattedTime
+        }
     }
+
 }

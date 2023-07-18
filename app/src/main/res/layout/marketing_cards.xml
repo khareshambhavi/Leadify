@@ -95,16 +95,16 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="20dp"
-                android:progress="40"
-                android:progressDrawable="@drawable/gradeint"
+                android:max="100"
+                android:progress="20"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/view2"
                 app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
             <ImageView
                 android:id="@+id/Company_Logo"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintStart_toStartOf="parent"

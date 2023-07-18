@@ -5,11 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.leadiify.R
 import com.example.leadiify.adapter.LeadsAdapter
 import com.example.leadiify.databinding.FragmentLeadsBinding
 import com.example.leadiify.model.Leads_data_model
+import com.example.leadiify.model.Leads_data_modelItem
 import com.example.unacademy.network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -51,6 +53,14 @@ class Leads : Fragment() {
                         LinearLayoutManager.VERTICAL,
                         false
                     )
+                    adapter?.onClickListener(object : LeadsAdapter.ClickListener {
+                        override fun OnClick(position: Int) {
+                            var data = response.body()?.get(position)
+                            var bundle = Bundle()
+                            bundle.putParcelable("data", data)
+                            findNavController().navigate(R.id.action_leads_to_userProfile,bundle)
+                        }
+                    })
                     binding.leadsRecyclerview.adapter=adapter
                     binding.leadsRecyclerview.layoutManager=layout
                 }

@@ -1,10 +1,8 @@
-package com.example.leadiify.model
+package com.example.leadiify.model.sendCampaign
 
-data class campaign_dataItem(
+data class SendCampaignData(
     val duration: String,
-    val id: Int,
     val impressions: String,
-    val marketing_templates: List<MarketingTemplate>,
     val percentage_change: String,
     val target: Target,
     val total_likes: String

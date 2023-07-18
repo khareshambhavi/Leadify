@@ -1,5 +1,9 @@
 package com.example.leadiify.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Leads_data_modelItem(
     val company_name: String,
     val company_names: String,
@@ -10,5 +14,7 @@ data class Leads_data_modelItem(
     val industry: String,
     val institute: String,
     val keywords: String,
+    val name: String,
+    val state_progress: Int,
     val title: String
-)
+):Parcelable
