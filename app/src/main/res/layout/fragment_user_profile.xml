@@ -7,35 +7,6 @@
     android:layout_height="match_parent"
     android:background="#F7F8FC"
     tools:context=".view.UserProfile">
-
-    <TextView
-        android:id="@+id/textView35"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
-        android:fontFamily="@font/poppins"
-        android:text="TextView"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView24"
-        app:layout_constraintTop_toBottomOf="@+id/c_name" />
-
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
-        android:fontFamily="@font/poppins"
-        android:text="TextView"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView221"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -55,7 +26,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/profile_photo"
+                android:id="@+id/profile_photo_"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="-20dp"
@@ -99,7 +70,7 @@
                 android:textColor="#000000"
                 android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_photo" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_photo_" />
 
             <TextView
                 android:id="@+id/email"
@@ -111,6 +82,7 @@
                 android:text="TextView"
                 android:textColor="#000000"
                 android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name" />
 
@@ -122,7 +94,7 @@
                 android:layout_marginEnd="20dp"
                 android:text="Connect"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_photo" />
+                app:layout_constraintTop_toBottomOf="@+id/profile_photo_" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/materialCardView"
@@ -147,9 +119,11 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="12dp"
                         android:fontFamily="@font/poppins"
                         android:text="TextView"
                         android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/textView23"
                         app:layout_constraintTop_toBottomOf="@+id/iid" />
@@ -176,7 +150,7 @@
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="12dp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="INDUSTRY : "
+                        android:text="JOB : "
                         android:textColor="#000000"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -189,7 +163,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="ID : "
+                        android:text="Score :"
                         android:textColor="#000000"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -197,14 +171,13 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="24dp"
-                android:layout_marginBottom="100dp"
                 app:cardCornerRadius="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/materialCardView">
@@ -220,7 +193,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Keywords : "
+                        android:text="URL : "
                         android:textColor="#000000"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView26" />
@@ -245,7 +218,7 @@
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="12dp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="INSTITUTE : "
+                        android:text="Additional Info: "
                         android:textColor="#000000"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -258,7 +231,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Function : "
+                        android:text="Location : "
                         android:textColor="#000000"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView231" />
@@ -270,7 +243,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Company Name : "
+                        android:text="Category : "
                         android:textColor="#000000"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView221" />
@@ -282,7 +255,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="12dp"
                         android:fontFamily="@font/poppins_bold"
-                        android:text="Company Size : "
+                        android:text="Connection Degree : "
                         android:textColor="#000000"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -364,13 +337,45 @@
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="12dp"
                         android:fontFamily="@font/poppins"
                         android:text="TextView"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/textView25"
                         app:layout_constraintTop_toBottomOf="@+id/keywords" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView211"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="100dp"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView2">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/enriched_recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

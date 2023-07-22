@@ -25,7 +25,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/template_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="26dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/template_name"
                 app:srcCompat="@drawable/baseline_access_time_24" />
 
             <TextView
@@ -64,7 +64,7 @@
                 android:text="July 06 , 2023 - 16:26"
                 android:textSize="10sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintTop_toBottomOf="@+id/template_name" />
 
             <ImageView
                 android:id="@+id/imageView6"
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toStartOf="@+id/imageView6"
-                app:layout_constraintStart_toEndOf="@+id/textView7"
+                app:layout_constraintStart_toEndOf="@+id/template_name"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/group_1000005043" />
 

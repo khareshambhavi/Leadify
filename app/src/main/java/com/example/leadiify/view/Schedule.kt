@@ -8,17 +8,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.leadiify.R
 import com.example.leadiify.databinding.FragmentScheduleBinding
+import com.example.leadiify.model.Scraperdataclass
+import com.example.unacademy.network.RetrofitClient
+import com.example.unacademy.network.RetrofitClient2
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
 
-class Schedule : Fragment() {
-    private var _binding: FragmentScheduleBinding? =  null
+class  Schedule : Fragment() {
+    private var _binding: FragmentScheduleBinding? = null
     private val binding get() = _binding!!
 
     override fun onResume() {
@@ -26,10 +35,10 @@ class Schedule : Fragment() {
         val services = resources.getStringArray(R.array.TypesofServices)
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown1, services)
         binding.autoCompleteTextView.setAdapter(arrayAdapter)
-
-        val age = resources.getStringArray(R.array.AgeCategory)
-        val arrayAdapter2 = ArrayAdapter(requireContext(), R.layout.dropdown1, age)
-        binding.autoCompleteTextView2.setAdapter(arrayAdapter2)
+//
+//        val age = resources.getStringArray(R.array.AgeCategory)
+//        val arrayAdapter2 = ArrayAdapter(requireContext(), R.layout.dropdown1, age)
+//        binding.autoCompleteTextView2.setAdapter(arrayAdapter2)
 
         val action = resources.getStringArray(R.array.SelectAction)
         val arrayAdapter3 = ArrayAdapter(requireContext(), R.layout.dropdown1, action)
@@ -41,7 +50,7 @@ class Schedule : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding =  FragmentScheduleBinding.inflate(inflater, container, false)
+        _binding = FragmentScheduleBinding.inflate(inflater, container, false)
 
 
         binding.button1.setOnClickListener {
@@ -60,10 +69,48 @@ class Schedule : Fragment() {
         binding.button2.setOnClickListener {
             activity?.let { it1 ->
                 DatePickerDialog(
-                    it1, datePicker, mycalender.get(Calendar.YEAR),mycalender.get(Calendar.MONTH),
-                    mycalender.get(Calendar.DAY_OF_MONTH) ).show()
+                    it1, datePicker, mycalender.get(Calendar.YEAR), mycalender.get(Calendar.MONTH),
+                    mycalender.get(Calendar.DAY_OF_MONTH)
+                ).show()
             }
 
+        }
+        binding.materialbutton.setOnClickListener {
+            binding.progressBar3.visibility=View.VISIBLE
+            var data = Scraperdataclass(
+                binding.targetUrl.text.toString(),
+                binding.title.text.toString(),
+                binding.companyname.text.toString(),
+                binding.keywords.text.toString(),
+                binding.institution.text.toString(),
+                binding.autoCompleteTextView.text.toString(),
+                binding.autoCompleteTextView2.text.toString(),
+                binding.autoCompleteTextView5.text.toString(),
+                binding.autoCompleteTextView4.text.toString(),
+                binding.autoCompleteTextView6.text.toString(),
+                binding.button1.text.toString(),
+                binding.button2.text.toString()
+            )
+            RetrofitClient.init().senddata(data).enqueue(object : Callback<ResponseBody?> {
+                override fun onResponse(
+                    call: Call<ResponseBody?>,
+                    response: Response<ResponseBody?>
+                ) {
+                    binding.progressBar3.visibility=View.GONE
+                    if(response.isSuccessful){
+                        Toast.makeText(requireContext(),"Send",Toast.LENGTH_LONG).show()
+                        findNavController().navigate(R.id.action_schedule_to_leads)
+                    }
+                    else{
+                        Toast.makeText(requireContext(),"Already sent",Toast.LENGTH_LONG).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
+                    binding.progressBar3.visibility=View.GONE
+                    Toast.makeText(requireContext(),"Network Problem",Toast.LENGTH_LONG).show()
+                }
+            })
         }
 
 

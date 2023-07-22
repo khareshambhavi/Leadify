@@ -25,11 +25,12 @@ class MarketingAdapter(var data: campaign_data):RecyclerView.Adapter<MarketingAd
         {
             with(data[holder.adapterPosition])
             {
+
                bind.textView14.text=this.total_likes
                 bind.targetValue.text=this.target.target_name.toString()
                 bind.impValue.text=this.impressions
                 bind.durationData.text=this.duration
-                Log.d("ASDasd",((this.duration.toInt().toFloat()/20)*100F).roundToInt().toString())
+//                Log.d("ASDasd",((this.duration.toInt().toFloat()/20)*100F).roundToInt().toString())
                 bind.durationProgress.progress= ((this.duration.toInt().toFloat()/20)*100F).roundToInt()
                 bind.CompanyLogo.load(this.target.logo.toString() ?: "https.google.com")
             }

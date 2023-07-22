@@ -62,27 +62,36 @@ class CreateCampaign : Fragment() {
             }
         })
         binding.button1.setOnClickListener {
+            binding.progressBar4.visibility=View.VISIBLE
             var data = SendCampaignData(
                 duration = binding.duration.text.toString(),
                 impressions = "",
                 percentage_change = "",
-                target = Target("", binding.autoCompleteTextView.text.toString()),
-                ""
+                target = Target( binding.autoCompleteTextView.text.toString()),
+                "",
+                binding.autoCompleteTextView1.text.toString()
             )
             Log.d("asdasdasd",data.toString())
             RetrofitClient.init().sendCampaigns(data).enqueue(object : Callback<ResponseBody?> {
                 override fun onResponse(
                     call: Call<ResponseBody?>,
                     response: Response<ResponseBody?>
-                ) {
+                ) {  binding.progressBar4.visibility=View.GONE
+
                      if(response.isSuccessful)
                      {
-                         Toast.makeText(requireContext(), "Maa chod die", Toast.LENGTH_SHORT).show()
+                         Toast.makeText(requireContext(), "Marketing Sent", Toast.LENGTH_SHORT).show()
                      }
+                    else
+                     {
+                         Toast.makeText(requireContext(), response.message().toString(), Toast.LENGTH_SHORT).show()
+                     }
+
                 }
 
                 override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    binding.progressBar4.visibility=View.GONE
+                    Toast.makeText(requireContext(), t.localizedMessage.toString(), Toast.LENGTH_SHORT).show()
                 }
             })
         }

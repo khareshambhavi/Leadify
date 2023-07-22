@@ -294,38 +294,38 @@ class Dashboard : Fragment() {
     private fun extracted(statsData: ArrayList<home_stats_model>) {
         statsData.add(
             home_stats_model(
-                "Active", R.drawable.group_1000004869, "60",
+                "Active", R.drawable.group_1000004869, "10",
                 "#4478F2"
             )
         )
         statsData.add(
             home_stats_model(
-                "Active", R.drawable.group_1000004869, "60",
-                "#4478F2"
+                "Paused", R.drawable.group_1000004872, "9",
+                "#FEC400"
             )
         )
         statsData.add(
             home_stats_model(
-                "Active", R.drawable.group_1000004869, "60",
-                "#4478F2"
+                "Stopped", R.drawable.group_1000004875, "12",
+                "#FE1E00"
             )
         )
         statsData.add(
             home_stats_model(
-                "Active", R.drawable.group_1000004869, "60",
-                "#4478F2"
+                "Completed", R.drawable.group_1000004876, "16",
+                "#29CC4D"
             )
         )
         statsData.add(
             home_stats_model(
-                "Active", R.drawable.group_1000004869, "60",
-                "#4478F2"
+                "Flagged", R.drawable.group_1000004878, "28",
+                "#FE4C00"
             )
         )
         statsData.add(
             home_stats_model(
-                "Active", R.drawable.group_1000004869, "60",
-                "#4478F2"
+                "Total", R.drawable.group_1000004889, "75",
+                "#FE00A8"
             )
         )
     }
@@ -333,10 +333,10 @@ class Dashboard : Fragment() {
     private fun funnelChart(anyChartView: AnyChartView) {
         val funnel = AnyChart.funnel()
         val data: MutableList<DataEntry> = ArrayList()
-        data.add(ValueDataEntry("Website Visits", 528756))
-        data.add(ValueDataEntry("Downloads", 164052))
-        data.add(ValueDataEntry("Valid Contacts", 112167))
-        data.add(ValueDataEntry("Interested to Buy", 79128))
+        data.add(ValueDataEntry("Awareness", 15))
+        data.add(ValueDataEntry("Interest", 12))
+        data.add(ValueDataEntry("Desire",10 ))
+        data.add(ValueDataEntry("Action", 7))
         funnel.data(data)
         funnel.margin(arrayOf("10", "20%", "10", "20%"))
         funnel.baseWidth("70%")

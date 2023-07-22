@@ -10,7 +10,7 @@
         android:title="Schedule"
         android:icon="@drawable/schedule_selection"/>
     <item android:id="@+id/acitvity"
-        android:title="Activity"
+        android:title="Templates"
         android:icon="@drawable/activity_selection" />
     <item android:id="@+id/marketing"
         android:title="Campaign"

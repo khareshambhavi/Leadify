@@ -5,16 +5,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.leadiify.databinding.ActivityDataBinding
+import com.example.leadiify.databinding.TemplatesCardBinding
+import com.example.leadiify.model.Get_Templates_DataItem
 import com.example.leadiify.model.acitivity_data
+import java.lang.Exception
 
-class ActivityAdapter(var data:ArrayList<acitivity_data>):RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
-    inner class ViewHolder(var bind:ActivityDataBinding):RecyclerView.ViewHolder(bind.root)
+class ActivityAdapter(var data:ArrayList<Get_Templates_DataItem>):RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
+    inner class ViewHolder(var bind:TemplatesCardBinding):RecyclerView.ViewHolder(bind.root)
     {
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityAdapter.ViewHolder {
       var inflater =LayoutInflater.from(parent.context)
-        var binding = ActivityDataBinding.inflate(inflater,parent,false)
+        var binding = TemplatesCardBinding.inflate(inflater,parent,false)
         return ViewHolder(binding)
     }
 
@@ -23,10 +26,18 @@ class ActivityAdapter(var data:ArrayList<acitivity_data>):RecyclerView.Adapter<A
         {
             with(data[holder.adapterPosition])
             {
-                bind.textView7.text=this.name
-                bind.imageView7.setBackgroundResource(this.bimage)
-                bind.textView10.text=this.time
-                bind.textView11.text="Token: " + this.token
+                try {
+                    bind.templateName.text = this.template_name.toString()
+                    bind.ClickRate.text = this.click_rate.toString()
+                    bind.OpenRate.text = this.open_rate.toString()
+                    bind.meetingRate.text = this.meeting_rate.toString()
+                    bind.ReplyRate.text = this.reply_rate.toString()
+                    bind.bounceRate.text = this.bounce_rate.toString()
+                }
+                catch (e:Exception)
+                {
+
+                }
             }
         }
     }

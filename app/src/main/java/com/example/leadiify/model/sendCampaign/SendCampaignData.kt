@@ -5,5 +5,6 @@ data class SendCampaignData(
     val impressions: String,
     val percentage_change: String,
     val target: Target,
-    val total_likes: String
+    val total_likes: String,
+    val template_name:String
 )

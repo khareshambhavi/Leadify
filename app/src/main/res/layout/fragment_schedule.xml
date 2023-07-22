@@ -66,15 +66,17 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:background="@drawable/schedule_bg"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="15dp"
+            android:background="@drawable/schedule_bg"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" >
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
 
             <LinearLayout
@@ -82,6 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="15dp"
                 android:orientation="vertical"
@@ -92,12 +95,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    android:text="Target URL"
+                    android:text="Geography"
                     android:textColor="#443B3B"
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/target_url"
                     style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -130,6 +133,7 @@
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/title"
                     style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -163,6 +167,7 @@
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/companyname"
                     style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -196,6 +201,7 @@
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/keywords"
                     style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -228,6 +234,7 @@
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/institution"
                     style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -238,8 +245,6 @@
             </LinearLayout>
 
 
-
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
@@ -248,6 +253,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="16dp"
+                android:visibility="gone"
                 app:endIconDrawable="@drawable/baseline_keyboard_arrow_down_24"
                 app:endIconTint="#29CC97"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -262,16 +268,16 @@
                     android:layout_weight="1"
                     android:background="@drawable/schedule_bg2"
                     android:dropDownSelector="#29CC97"
+                    android:hint="Types of Services"
                     android:inputType="none"
                     android:padding="2dp"
-                    android:text="Types of Services"
                     android:textColor="#333333"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:id="@+id/textInputLayout2"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
@@ -284,17 +290,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
-                <AutoCompleteTextView
+                <EditText
                     android:id="@+id/autoCompleteTextView2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/schedule_bg2"
-                    android:dropDownSelector="#29CC97"
 
+                    android:hint="Age Category"
                     android:inputType="none"
                     android:padding="2dp"
-                    android:text="Age Category"
                     android:textColor="#333333"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -309,6 +314,7 @@
                 android:layout_marginEnd="16dp"
                 app:endIconDrawable="@drawable/baseline_keyboard_arrow_down_24"
                 app:endIconTint="#29CC97"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -322,9 +328,9 @@
                     android:background="@drawable/schedule_bg2"
                     android:dropDownSelector="#29CC97"
 
+                    android:hint="Industry"
                     android:inputType="none"
                     android:padding="2dp"
-                    android:text="Industry"
                     android:textColor="#333333"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -332,8 +338,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout4"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
@@ -345,24 +351,21 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
-                <AutoCompleteTextView
+                <EditText
                     android:id="@+id/autoCompleteTextView4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/schedule_bg2"
-                    android:dropDownSelector="#29CC97"
-
+                    android:hint="Company Size"
                     android:inputType="none"
                     android:padding="2dp"
-                    android:text="Company Size"
                     android:textColor="#333333"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout6"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
@@ -372,20 +375,20 @@
                 app:endIconTint="#29CC97"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
-                <AutoCompleteTextView
+                <EditText
                     android:id="@+id/autoCompleteTextView6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/schedule_bg2"
-                    android:dropDownSelector="#29CC97"
 
+                    android:hint="Function"
                     android:inputType="none"
                     android:padding="2dp"
-                    android:text="Function"
                     android:textColor="#333333"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -412,9 +415,9 @@
                     android:background="@drawable/schedule_bg2"
                     android:dropDownSelector="#29CC97"
 
+                    android:hint="Select Action"
                     android:inputType="none"
                     android:padding="2dp"
-                    android:text="Select Action"
                     android:textColor="#333333"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -441,14 +444,12 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="30dp"
+
                 android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
-                app:layout_constraintVertical_bias="1.0">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -463,8 +464,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:background="@drawable/schedule_bg2"
+                    android:gravity="center"
 
                     android:hint="Select Date"
                     android:padding="2dp"
@@ -492,7 +493,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:text="Time"
                     android:textColor="#443B3B"
                     android:textSize="16dp" />
@@ -500,27 +500,51 @@
                 <TextView
                     android:id="@+id/button1"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="3dp"
                     android:layout_height="45dp"
-                    android:gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
                     android:background="@drawable/schedule_bg2"
+                    android:gravity="center"
+                    android:hint="Select Time"
+                    android:padding="2dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
                     app:strokeColor="#B1AFB1"
                     app:strokeWidth="0.5dp"
-                    android:text="Select Time"
-                    android:textColorHint="@color/black"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:layout_weight="1"
-                    android:padding="2dp"
 
                     />
 
             </LinearLayout>
 
 
-
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/materialbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="30dp"
+                android:text="Scrape Data"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar3"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,4 +28,17 @@
         <item>Automated Reply to Lead</item>
         <item>Lead Assignment</item>
     </string-array>
-</resources>
+    <string-array name="Industry">
+        <item>Bajaj Finserv Loan</item>
+        <item>Bajaj Finserv Stock</item>
+        <item>Bajaj Finserv Insurance</item>
+        <item>Bajaj Finserv Finance</item>
+    </string-array>
+    <string-array name="CompanySize">
+        <item>Bajaj Finserv Loan</item>
+        <item>Bajaj Finserv Stock</item>
+        <item>Bajaj Finserv Insurance</item>
+        <item>Bajaj Finserv Finance</item>
+    </string-array>
+
+    </resources>

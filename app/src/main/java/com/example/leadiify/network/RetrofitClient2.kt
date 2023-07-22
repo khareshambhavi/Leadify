@@ -5,11 +5,11 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitClient {
+object RetrofitClient2 {
     private val client = OkHttpClient.Builder().build()
     fun getInstance():Retrofit{
         return  Retrofit.Builder()
-            .baseUrl("http://10.10.220.36:9999/")
+            .baseUrl("https://d872-49-36-189-216.ngrok-free.app")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
@@ -18,4 +18,6 @@ object RetrofitClient {
     {
         return getInstance().create(Api::class.java)
     }
+
+
 }

@@ -26,6 +26,30 @@
 
 
             <TextView
+                android:id="@+id/ore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="24dp"
+                android:text="20"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="LEAD SCORE :"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,24 +69,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="2dp"
                 android:text="Software Incubator"
-                android:textSize="10sp"
-                app:layout_constraintStart_toEndOf="@+id/profile_photo"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="-10dp"
-                android:layout_marginEnd="4dp"
-                android:fontFamily="@font/poppins"
-                android:text="Software Engineer"
-                android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="10sp"
-                app:layout_constraintEnd_toStartOf="@+id/imageView5"
-                app:layout_constraintStart_toEndOf="@+id/textView7"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/profile_photo"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -84,6 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/bad_status" />
@@ -93,11 +103,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                app:layout_constraintTop_toBottomOf="@+id/textView10"
                 app:spb_animateToCurrentProgressState="true"
                 app:spb_checkStateCompleted="true"
                 app:spb_currentStateDescriptionColor="#0F9D58"
