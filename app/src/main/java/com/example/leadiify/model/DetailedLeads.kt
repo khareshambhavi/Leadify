@@ -73,5 +73,6 @@ data class DetailedLeads(
     val userId: String,
     val vmid: String,
     val website: String,
-    val websiteFromDropContact: String
+    val websiteFromDropContact: String,
+    val highlights:String
 ):Parcelable

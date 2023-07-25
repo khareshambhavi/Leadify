@@ -108,7 +108,8 @@ class  Schedule : Fragment() {
 
                 override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
                     binding.progressBar3.visibility=View.GONE
-                    Toast.makeText(requireContext(),"Network Problem",Toast.LENGTH_LONG).show()
+                    findNavController().navigate(R.id.action_schedule_to_leads)
+                    Toast.makeText(requireContext(),"",Toast.LENGTH_LONG).show()
                 }
             })
         }

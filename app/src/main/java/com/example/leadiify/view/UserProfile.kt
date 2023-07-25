@@ -39,6 +39,111 @@ class UserProfile : Fragment() {
         var binding = FragmentUserProfileBinding.inflate(inflater, container, false)
         var data  = arguments?.getParcelable<Leads_data_modelItem>("data")
 //        Toast.makeText(requireContext(), data.toString(), Toast.LENGTH_SHORT).show()
+        val data_enc = HashMap<String, String>()
+        data_enc["https://www.linkedin.com/in/ashish-panchal-639bb04/"]="Sure, here is the summary of the input text you provided:\n" +
+                "\n" +
+                "**Job Description:** Ashish Panchal is the Executive Director and Chief Executive Officer of Bajaj Markets, a retail banking and payments company in India. He has over 25 years of experience in the financial services industry, and has held senior positions at Citibank, Standard Chartered, Barclays, and Bajaj Finance.\n" +
+                "\n" +
+                "**Geography:** Ashish Panchal is based in Pune, Maharashtra, India.\n" +
+                "\n" +
+                "**Interesting Characteristics:** Ashish Panchal is a versatile retail-banking & payments business professional with a strong track record of success. He has a deep understanding of the retail financial services industry, and has a proven ability to lead and grow businesses. He is also a strong people manager, and has a knack for building and motivating high-performing teams.\n" +
+                "\n" +
+                "**Profile:** Ashish Panchal would be a good match for a variety of senior-level roles in the retail financial services industry. He would be a particularly good fit for roles in strategy, sales, marketing, and product development.\n" +
+                "\n" +
+                "**Additional Information:**\n" +
+                "\n" +
+                "* Education: Harvard Business School, Advanced Management Program (AMP)\n" +
+                "* MBA: Jamnalal Bajaj Institute of Management Studies (JBIMS)\n" +
+                "* LinkedIn Profile: https://www.linkedin.com/in/ashish-panchal-639bb04/\n" +
+                "\n" +
+                "I hope this summary is helpful. Please let me know if you have any other questions."
+        data_enc["https://www.linkedin.com/in/ramandeep-singh-gulati-9a3a61168/"]="Sure, here is the summary of the input text:\n" +
+                "\n" +
+                "**Job Description:** Assistant Manager at Bajaj Allianz General Insurance, with a focus on Multi-Channel Marketing.\n" +
+                "\n" +
+                "**Geography:** Mumbai, Maharashtra, India.\n" +
+                "\n" +
+                "**Interesting Characteristics:**\n" +
+                "* Passionate about new ideas and has a strong goal orientation.\n" +
+                "* Has superior understanding of various domains.\n" +
+                "* Good at conducting market research, designing long term strategies and immediate tacticals with flawless execution.\n" +
+                "* Highly effective with communication to present a product or a service to the clients.\n" +
+                "\n" +
+                "**Profile Match:**\n" +
+                "* Sales & Marketing\n" +
+                "* Market Research\n" +
+                "* Retail Marketing\n" +
+                "* Business Development\n" +
+                "* Business-to-Business (B2B)\n" +
+                "* Marketing\n" +
+                "* Sales Management\n" +
+                "* Fast-Moving Consumer Goods (FMCG)\n" +
+                "* Recruiting\n" +
+                "* Advertising\n" +
+                "* Strategic Negotiations\n" +
+                "* Team Building\n" +
+                "\n" +
+                "**Additional Information:**\n" +
+                "* Graduated from International School of Business & Media with a PGDM in Marketing & Finance.\n" +
+                "* Bachelor of Business Administration from St. aloysius College in Human Resources Management/Personnel Administration.\n" +
+                "* Currently based in Mumbai, Maharashtra, India.\n" +
+                "\n" +
+                "I hope this summary is helpful. Please let me know if you have any other questions."
+        data_enc["https://www.linkedin.com/in/devang-mody-6922834/"]="Sure, here is the summary of the input text:\n" +
+                "\n" +
+                "**Job Description:** Devang Mody is the CEO of Bajaj Finserv Health, a health insurance company in India. He is responsible for transforming the company into a full-stack diversified lender leveraging group franchise. He has a strong track record of innovation and has successfully re-modeled global sales finance business for India.\n" +
+                "\n" +
+                "**Geography and where he lives:** Devang Mody is based in Pune, Maharashtra, India.\n" +
+                "\n" +
+                "**Interesting characteristics about his profile:**\n" +
+                "* He is passionate about solving real-life problems at scale and believes that technology is the big enabler in making this a reality.\n" +
+                "* He has a strong track record of innovation and has successfully re-modeled global sales finance business for India.\n" +
+                "* He is a strong believer that innovation doesn't need to be brewed in a lab and comes from the most regular processes.\n" +
+                "\n" +
+                "**For what profile would he be a good match:** Devang Mody would be a good match for a CEO or other senior leadership role in a technology-enabled financial services company. He has a proven track record of innovation and success in this space. He would also be a good fit for a company that is looking to transform its business model or expand into new markets.\n" +
+                "\n" +
+                "Here are some additional details about Devang Mody's experience:\n" +
+                "* He has over 20 years of experience in the financial services industry.\n" +
+                "* He has held senior positions at Bajaj Finance Ltd, Reliance Commercial Finance, and PayU.\n" +
+                "* He is a graduate of the Wharton School and the Indian Institute of Management, Ahmedabad.\n" +
+                "\n" +
+                "I hope this summary is helpful. Please let me know if you have any other questions."
+            data_enc["https://www.linkedin.com/in/bhattrakesh/"] ="Sure, here is the summary of the input text:\n" +
+                    "\n" +
+                    "**Job Description:** Executive Director at Bajaj Finance Ltd.\n" +
+                    "\n" +
+                    "**Geography:** Pune, Maharashtra, India.\n" +
+                    "\n" +
+                    "**Interesting Characteristics:**\n" +
+                    "\n" +
+                    "* Over 29 years of experience in the financial services industry.\n" +
+                    "* Passionate about leading digital transformations.\n" +
+                    "* Proven track record of success in both large enterprises and startups.\n" +
+                    "* Strong leadership and management skills.\n" +
+                    "* Expertise in team management, vendor management, business analysis, IT strategy, and pre-sales.\n" +
+                    "\n" +
+                    "**Profile Match:**\n" +
+                    "\n" +
+                    "Rakesh Bhatt would be a good match for a variety of profiles, including:\n" +
+                    "\n" +
+                    "* Executive Director\n" +
+                    "* Chief Executive Officer\n" +
+                    "* Managing Director\n" +
+                    "* Head of Digital Transformation\n" +
+                    "* Head of IT Strategy\n" +
+                    "* Head of Business Analysis\n" +
+                    "\n" +
+                    "He would also be a good fit for startups that are looking to grow their business through digital transformation.\n" +
+                    "\n" +
+                    "**Additional Information:**\n" +
+                    "\n" +
+                    "* Rakesh Bhatt is currently based in Pune, Maharashtra, India.\n" +
+                    "* He has a Master's degree in Computer Applications from Gujarat University and a Bachelor's degree in Physics from The Maharaja Sayajirao University of Baroda.\n" +
+                    "* He is passionate about using technology to solve real-world problems.\n" +
+                    "* He is a strong advocate for continuous learning and innovation.\n" +
+                    "\n" +
+                    "I hope this summary is helpful. Please let me know if you have any other questions."
+
         binding.name.text=data?.fullName.toString()
         binding.yourStateProgress.setStateDescriptionData(descriptionData)
         binding.profilePhoto.load(data?.profileImageUrl.toString())
@@ -47,10 +152,26 @@ class UserProfile : Fragment() {
         binding.cTitle.text=data?.query.toString()
         binding.function.text=data?.detailed_leads?.location.toString()
         binding.textView28.text=data?.detailed_leads?.connectionDegree.toString()
-        binding.email.text=data?.email.toString()
+        if(data?.email=="nan" || data?.email=="")
+        binding.email.text=data?.detailed_leads?.email.toString()
+        else
+            binding.email.text=data?.email.toString()
         binding.industry.text=data?.detailed_leads?.jobTitle.toString()
         binding.institute.text=data?.additionalInfo.toString()
         binding.keywords.text=data?.url.toString()
+        if(data_enc.get(data?.detailed_leads?.linkedinProfileUrl.toString())!=null)
+        binding.textvalue1234.text= data_enc.get(data?.detailed_leads?.linkedinProfileUrl.toString())
+        else
+            binding.textvalue1234.text="Has over 20 years of experience in the tech industry.\n" +
+                    "Has a proven track record of driving growth and innovation.\n" +
+                    "Is a visionary leader with a deep understanding of the market and customer needs.\n" +
+                    "Is highly respected for his integrity, intelligence, and ability to inspire others.\n" +
+                    "Has led XYZ Corporation to become a leader in its field, known for cutting-edge technology and exceptional customer service." +"They possess exceptional skills, experience, and leadership qualities.\n" +
+                    "They are highly motivated, driven, and goal-oriented.\n" +
+                    "They have a deep understanding of their industry and are able to make strategic decisions.\n" +
+                    "They are excellent communicators, able to articulate their ideas clearly and persuasively.\n" +
+                    "They are highly adaptable, able to navigate change and uncertainty with grace and resilience.\n" +
+                    "They inspire and lead others towards a common vision."
         binding.keywords.setOnClickListener {
             val i = Intent(Intent.ACTION_VIEW)
             i.data = Uri.parse(binding.keywords.text.toString())
